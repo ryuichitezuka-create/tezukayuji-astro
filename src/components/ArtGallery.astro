@@ -1,0 +1,37 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  slides: {
+    full: string;
+    thumb: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const { id, slides } = Astro.props;
+const slidesJson = JSON.stringify(slides);
+---
+
+<div class={`art-gallery art-gallery--${id}`} id={`gallery-${id}`}>
+  <script type="application/json" class="art-gallery-data" set:html={slidesJson}></script>
+  <div class="art-gallery-thumbs-wrapper">
+    <button type="button" class="art-gallery-thumbs-arrow art-gallery-thumbs-arrow--left" data-action="thumbs-prev" title="サムネイルを左へ" aria-label="サムネイルを左へ">‹</button>
+    <div class="art-gallery-thumbs-viewport">
+      <div class="art-gallery-thumbs" aria-label="サムネイル"></div>
+    </div>
+    <button type="button" class="art-gallery-thumbs-arrow art-gallery-thumbs-arrow--right" data-action="thumbs-next" title="サムネイルを右へ" aria-label="サムネイルを右へ">›</button>
+  </div>
+  <div class="art-gallery-controls">
+    <button type="button" data-action="first" title="最初">|◀</button>
+    <button type="button" data-action="prev" title="前へ">◀</button>
+    <button type="button" data-action="play" title="再生/一時停止">⏸</button>
+    <button type="button" data-action="next" title="次へ">▶</button>
+    <button type="button" data-action="last" title="最後">▶|</button>
+  </div>
+  <div class="art-gallery-main">
+    <img src={slides[0]?.full} alt={slides[0]?.title} />
+  </div>
+  <div class="art-gallery-desc"></div>
+</div>

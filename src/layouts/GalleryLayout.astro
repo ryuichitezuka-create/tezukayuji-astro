@@ -1,0 +1,52 @@
+---
+import SiteAssets from '../components/SiteAssets.astro';
+
+interface Props {
+  title: string;
+  current: 'table1' | 'table2' | 'home';
+  /** ページ見出しをナビより前（最上部）に表示 */
+  headingFirst?: boolean;
+}
+
+const { title, current, headingFirst = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}　TEZUKA Yuji - Official Home Page</title>
+    <SiteAssets />
+    <link href="/css/art-gallery.css" rel="stylesheet" />
+    <script is:inline src="/js/art-gallery.js"></script>
+    <style is:global>
+      body {
+        background-color: #fff;
+        background-image: url(/site-assets/images/home_body_background.jpg);
+        background-repeat: repeat-x;
+      }
+    </style>
+  </head>
+  <body>
+    {headingFirst && <h1 class="gallery-page-title gallery-page-title--first">{title}</h1>}
+    <nav class="gallery-nav" aria-label="メインメニュー">
+      <ul>
+        <li>
+          <a href="/" class:list={[{ 'is-current': current === 'home' }]}>
+            <img src="/site-assets/coverimage/logo.png" width="100" height="86" alt="ホーム" />
+          </a>
+        </li>
+        <li>
+          <a href="/table1/" class:list={[{ 'is-current': current === 'table1' }]}>秋の院展出品作品</a>
+        </li>
+        <li>
+          <a href="/table2/" class:list={[{ 'is-current': current === 'table2' }]}>春の院展出品作品</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="gallery-page">
+      <slot />
+    </main>
+  </body>
+</html>

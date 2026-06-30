@@ -1,0 +1,680 @@
+/*
+*****************************************
+ PVII HTML Toolkits: Insert/Modify Link
+ by Project Seven Development
+ www.projectseven.com
+*****************************************
+*/
+
+/*GLOBALS*/
+a.p7TKL.TKL,
+a.p7TKL.TKL:hover,
+ul.p7TKL-list-h a,
+ul.p7TKL-list-v a,
+ul.p7TKL-list-h a:hover,
+ul.p7TKL-list-v a:hover,
+.hmy-section ul.p7TKL-list-h a,
+.hmy-section ul.p7TKL-list-v a,
+.hmy-section ul.p7TKL-list-h a:hover,
+.hmy-section ul.p7TKL-list-v a:hover {
+	border-bottom: none;
+	text-decoration: none;
+	transition: none;
+}
+a.p7TKL.TKL.tkl-ani,
+ul.p7TKL-list-h.tkl-ani a,
+ul.p7TKL-list-v.tkl-ani a,
+ul.p7TKL-list-h.tkl-ani a:hover,
+ul.p7TKL-list-v.tkl-ani a:hover {
+	transition: all linear .35s;
+}
+/*TEXT DECORATION*/
+.p7TKL.TKL.tkl-TD-L-dot:link {
+	border-bottom: 1px dotted;
+}
+.p7TKL.TKL.tkl-TD-L-solid:link {
+	border-bottom: 1px solid;
+}
+.p7TKL.TKL.tkl-TD-L-none:link {
+	border-bottom: 1px solid rgba(0,0,0,0);
+}
+.p7TKL.TKL.tkl-TD-H-solid:hover {
+	border-bottom: 1px solid;
+}
+.p7TKL.TKL.tkl-TD-H-dot:hover {
+	border-bottom: 1px dotted;
+}
+.p7TKL.TKL.tkl-TD-H-none:hover {
+	border-bottom: 1px solid rgba(0,0,0,0);
+}
+
+
+/*LINK COLORS*/
+a.p7TKL.TKL.tkl-LC-gray,
+ul.p7TKL-list-h.tkl-LC-gray a,
+ul.p7TKL-list-v.tkl-LC-gray a {
+	color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-LC-black,
+ul.p7TKL-list-h.tkl-LC-black a,
+ul.p7TKL-list-v.tkl-LC-black a {
+	color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-LC-white,
+ul.p7TKL-list-h.tkl-LC-white a,
+ul.p7TKL-list-v.tkl-LC-white a {
+	color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-LC-green,
+ul.p7TKL-list-h.tkl-LC-green a,
+ul.p7TKL-list-v.tkl-LC-green a {
+	color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-LC-mint,
+ul.p7TKL-list-h.tkl-LC-mint a,
+ul.p7TKL-list-v.tkl-LC-mint a {
+	color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-LC-blue,
+ul.p7TKL-list-h.tkl-LC-blue a,
+ul.p7TKL-list-v.tkl-LC-blue a {
+	color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-LC-red,
+ul.p7TKL-list-h.tkl-LC-red a,
+ul.p7TKL-list-v.tkl-LC-red a {
+	color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-LC-skyblue,
+ul.p7TKL-list-h.tkl-LC-skyblue a,
+ul.p7TKL-list-v.tkl-LC-skyblue a {
+	color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-LC-silver,
+ul.p7TKL-list-h.tkl-LC-silver a,
+ul.p7TKL-list-v.tkl-LC-silver a {
+	color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-LC-forest,
+ul.p7TKL-list-h.tkl-LC-forest a,
+ul.p7TKL-list-v.tkl-LC-forest a {
+	color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-LC-lavender,
+ul.p7TKL-list-h.tkl-LC-lavender a,
+ul.p7TKL-list-v.tkl-LC-lavender a {
+	color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-LC-rust,
+ul.p7TKL-list-h.tkl-LC-rust a,
+ul.p7TKL-list-v.tkl-LC-rust a {
+	color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-LC-purple,
+ul.p7TKL-list-h.tkl-LC-purple a,
+ul.p7TKL-list-v.tkl-LC-purple a {
+	color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-LC-beige,
+ul.p7TKL-list-h.tkl-LC-beige a,
+ul.p7TKL-list-v.tkl-LC-beige a {
+	color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-LC-wine,
+ul.p7TKL-list-h.tkl-LC-wine a,
+ul.p7TKL-list-v.tkl-LC-wine a {
+	color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-LC-mist,
+ul.p7TKL-list-h.tkl-LC-mist a,
+ul.p7TKL-list-v.tkl-LC-mist a {
+	color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-LC-gold,
+ul.p7TKL-list-h.tkl-LC-gold a,
+ul.p7TKL-list-v.tkl-LC-gold a {
+	color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-LC-orange,
+ul.p7TKL-list-h.tkl-LC-orange a,
+ul.p7TKL-list-v.tkl-LC-orange a {
+	color: rgb(239,118,51);
+}
+
+
+/*VISITED COLORS*/
+a.p7TKL.TKL.tkl-VC-gray:visited,
+ul.p7TKL-list-h.tkl-VC-gray a:visited,
+ul.p7TKL-list-v.tkl-VC-gray a:visited {
+	color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-VC-black:visited,
+ul.p7TKL-list-h.tkl-VC-black a:visited,
+ul.p7TKL-list-v.tkl-VC-black a:visited {
+	color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-VC-white:visited,
+ul.p7TKL-list-h.tkl-VC-white a:visited,
+ul.p7TKL-list-v.tkl-VC-white a:visited {
+	color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-VC-green:visited,
+ul.p7TKL-list-h.tkl-VC-green a:visited,
+ul.p7TKL-list-h.tkl-VC-green a:visited {
+	color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-VC-mint:visited,
+ul.p7TKL-list-h.tkl-VC-mint a:visited,
+ul.p7TKL-list-v.tkl-VC-mint a:visited {
+	color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-VV-blue:visited,
+ul.p7TKL-list-h.tkl-VC-blue a:visited,
+ul.p7TKL-list-v.tkl-VC-blue a:visited {
+	color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-VC-red:visited,
+ul.p7TKL-list-h.tkl-VC-red a:visited,
+ul.p7TKL-list-v.tkl-VC-red a:visited {
+	color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-VC-skyblue:visited,
+ul.p7TKL-list-h.tkl-VC-skyblue a:visited,
+ul.p7TKL-list-v.tkl-VC-skyblue a:visited {
+	color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-VC-silver:visited,
+ul.p7TKL-list-h.tkl-VC-silver a:visited,
+ul.p7TKL-list-v.tkl-VC-silver a:visited {
+	color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-VC-forest:visited,
+ul.p7TKL-list-h.tkl-VC-forest a:visited,
+ul.p7TKL-list-v.tkl-VC-forest a:visited {
+	color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-VC-lavender:visited,
+ul.p7TKL-list-h.tkl-VC-lavender a:visited,
+ul.p7TKL-list-v.tkl-VC-lavender a:visited {
+	color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-VC-rust:visited,
+ul.p7TKL-list-h.tkl-VC-rust a:visited,
+ul.p7TKL-list-v.tkl-VC-rust a:visited {
+	color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-VC-purple:visited,
+ul.p7TKL-list-h.tkl-VC-purple a:visited,
+ul.p7TKL-list-v.tkl-VC-purple a:visited {
+	color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-VC-beige:visited,
+ul.p7TKL-list-h.tkl-VC-beige a:visited,
+ul.p7TKL-list-v.tkl-VC-beige a:visited {
+	color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-VC-wine:visited,
+ul.p7TKL-list-h.tkl-VC-wine a:visited,
+ul.p7TKL-list-v.tkl-VC-wine a:visited {
+	color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-VC-mist:visited,
+ul.p7TKL-list-h.tkl-VC-mist a:visited,
+ul.p7TKL-list-v.tkl-VC-mist a:visited {
+	color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-VC-gold:visited,
+ul.p7TKL-list-h.tkl-VC-gold a:visited,
+ul.p7TKL-list-v.tkl-VC-gold a:visited {
+	color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-VC-orange:visited,
+ul.p7TKL-list-h.tkl-VC-orange a:visited,
+ul.p7TKL-list-v.tkl-VC-orange a:visited {
+	color: rgb(239,118,51);
+}
+
+
+/*HOVER COLORS*/
+a.p7TKL.TKL.tkl-HC-gray:hover,
+ul.p7TKL-list-h.tkl-HC-gray a:hover,
+ul.p7TKL-list-v.tkl-HC-gray a:hover {
+	color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-HC-black:hover,
+ul.p7TKL-list-h.tkl-HC-black a:hover,
+ul.p7TKL-list-v.tkl-HC-black a:hover {
+	color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-HC-white:hover,
+ul.p7TKL-list-h.tkl-HC-white a:hover,
+ul.p7TKL-list-v.tkl-HC-white a:hover {
+	color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-HC-green:hover,
+ul.p7TKL-list-h.tkl-HC-green a:hover,
+ul.p7TKL-list-v.tkl-HC-green a:hover {
+	color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-HC-mint:hover,
+ul.p7TKL-list-h.tkl-HC-mint a:hover,
+ul.p7TKL-list-v.tkl-HC-mint a:hover {
+	color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-HC-blue:hover,
+ul.p7TKL-list-h.tkl-HC-blue a:hover,
+ul.p7TKL-list-v.tkl-HC-blue a:hover {
+	color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-HC-red:hover,
+ul.p7TKL-list-h.tkl-HC-red a:hover,
+ul.p7TKL-list-v.tkl-HC-red a:hover {
+	color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-HC-skyblue:hover,
+ul.p7TKL-list-h.tkl-HC-skyblue a:hover,
+ul.p7TKL-list-v.tkl-HC-skyblue a:hover {
+	color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-HC-silver:hover,
+ul.p7TKL-list-h.tkl-HC-silver a:hover,
+ul.p7TKL-list-v.tkl-HC-silver a:hover {
+	color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-HC-forest:hover,
+ul.p7TKL-list-h.tkl-HC-forest a:hover,
+ul.p7TKL-list-v.tkl-HC-forest a:hover {
+	color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-HC-lavender:hover,
+ul.p7TKL-list-h.tkl-HC-lavender a:hover,
+ul.p7TKL-list-v.tkl-HC-lavender a:hover {
+	color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-HC-rust:hover,
+ul.p7TKL-list-h.tkl-HC-rust a:hover,
+ul.p7TKL-list-v.tkl-HC-rust a:hover {
+	color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-HC-purple:hover,
+ul.p7TKL-list-h.tkl-HC-purple a:hover,
+ul.p7TKL-list-v.tkl-HC-purple a:hover {
+	color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-HC-beige:hover,
+ul.p7TKL-list-h.tkl-HC-beige a:hover,
+ul.p7TKL-list-v.tkl-HC-beige a:hover {
+	color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-HC-wine:hover,
+ul.p7TKL-list-h.tkl-HC-wine a:hover,
+ul.p7TKL-list-v.tkl-HC-wine a:hover {
+	color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-HC-mist:hover,
+ul.p7TKL-list-h.tkl-HC-mist a:hover,
+ul.p7TKL-list-v.tkl-HC-mist a:hover {
+	color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-HC-gold:hover,
+ul.p7TKL-list-h.tkl-HC-gold a:hover,
+ul.p7TKL-list-v.tkl-HC-gold a:hover {
+	color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-HC-orange:hover,
+ul.p7TKL-list-h.tkl-HC-orange a:hover,
+ul.p7TKL-list-v.tkl-HC-orange a:hover {
+	color: rgb(239,118,51);
+}
+
+/*BUTTON GLOBALS*/
+ul.p7TKL-list-h a,
+ul.p7TKL-list-v a,
+ul.p7TKL-list-h a:hover,
+ul.p7TKL-list-v a:hover {
+	text-decoration: none;
+	padding: 10px;
+	border: none;
+}
+a.p7TKL.TKL.tkl-BTN,
+a.p7TKL.TKL.tkl-BTN:hover {
+	display: inline-block;
+	text-decoration: none;
+	padding: 10px;
+	border: none;
+}
+
+/*DEFAULT STATE BACKGROUND COLORS*/
+a.p7TKL.TKL.tkl-BGL-black,
+ul.p7TKL-list-h.tkl-BGL-black a,
+ul.p7TKL-list-v.tkl-BGL-black a {
+	background-color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-BGL-white,
+ul.p7TKL-list-h.tkl-BGL-white a,
+ul.p7TKL-list-v.tkl-BGL-white a {
+	background-color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-BGL-gray,
+ul.p7TKL-list-h.tkl-BGL-gray a,
+ul.p7TKL-list-v.tkl-BGL-gray a {
+	background-color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-BGL-green,
+ul.p7TKL-list-h.tkl-BGL-green a,
+ul.p7TKL-list-v.tkl-BGL-green a {
+	background-color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-BGL-mint,
+ul.p7TKL-list-h.tkl-BGL-mint a,
+ul.p7TKL-list-v.tkl-BGL-mint a {
+	background-color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-BGL-blue,
+ul.p7TKL-list-h.tkl-BGL-blue a,
+ul.p7TKL-list-v.tkl-BGL-blue a {
+	background-color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-BGL-red,
+ul.p7TKL-list-h.tkl-BGL-red a,
+ul.p7TKL-list-v.tkl-BGL-red a {
+	background-color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-BGL-skyblue,
+ul.p7TKL-list-h.tkl-BGL-skyblue a,
+ul.p7TKL-list-v.tkl-BGL-skyblue a {
+	background-color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-BGL-silver,
+ul.p7TKL-list-h.tkl-BGL-silver a,
+ul.p7TKL-list-v.tkl-BGL-silver a {
+	background-color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-BGL-forest,
+ul.p7TKL-list-h.tkl-BGL-forest a,
+ul.p7TKL-list-v.tkl-BGL-forest a {
+	background-color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-BGL-lavender,
+ul.p7TKL-list-h.tkl-BGL-lavender a,
+ul.p7TKL-list-v.tkl-BGL-lavender a {
+	background-color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-BGL-rust,
+ul.p7TKL-list-h.tkl-BGL-rust a,
+ul.p7TKL-list-v.tkl-BGL-rust a {
+	background-color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-BGL-purple,
+ul.p7TKL-list-h.tkl-BGL-purple a,
+ul.p7TKL-list-v.tkl-BGL-purple a {
+	background-color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-BGL-beige,
+ul.p7TKL-list-h.tkl-BGL-beige a,
+ul.p7TKL-list-v.tkl-BGL-beige a {
+	background-color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-BGL-wine,
+ul.p7TKL-list-h.tkl-BGL-wine a,
+ul.p7TKL-list-v.tkl-BGL-wine a {
+	background-color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-BGL-mist,
+ul.p7TKL-list-h.tkl-BGL-mist a,
+ul.p7TKL-list-v.tkl-BGL-mist a {
+	background-color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-BGL-gold,
+ul.p7TKL-list-h.tkl-BGL-gold a,
+ul.p7TKL-list-v.tkl-BGL-gold a {
+	background-color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-BGL-orange,
+ul.p7TKL-list-h.tkl-BGL-orange a,
+ul.p7TKL-list-v.tkl-BGL-orange a {
+	background-color: rgb(239,118,51);
+}
+
+
+/*VISITED STATE BACKGROUND COLORS*/
+a.p7TKL.TKL.tkl-BGV-black:visited,
+ul.p7TKL-list-h.tkl-BGV-black a:visited,
+ul.p7TKL-list-v.tkl-BGV-black a:visited {
+	background-color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-BGV-white:visited,
+ul.p7TKL-list-h.tkl-BGV-white a:visited,
+ul.p7TKL-list-v.tkl-BGV-white a:visited {
+	background-color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-BGV-gray:visited,
+ul.p7TKL-list-h.tkl-BGV-gray a:visited,
+ul.p7TKL-list-v.tkl-BGV-gray a:visited {
+	background-color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-BGV-green:visited,
+ul.p7TKL-list-h.tkl-BGV-green a:visited,
+ul.p7TKL-list-v.tkl-BGV-green a:visited {
+	background-color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-BGV-mint:visited,
+ul.p7TKL-list-h.tkl-BGV-mint a:visited,
+ul.p7TKL-list-v.tkl-BGV-mint a:visited {
+	background-color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-BGV-blue:visited,
+ul.p7TKL-list-h.tkl-BGV-blue a:visited,
+ul.p7TKL-list-v.tkl-BGV-blue a:visited {
+	background-color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-BGV-red:visited,
+ul.p7TKL-list-h.tkl-BGV-red a:visited,
+ul.p7TKL-list-v.tkl-BGV-red a:visited {
+	background-color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-BGV-skyblue:visited,
+ul.p7TKL-list-h.tkl-BGV-skyblue a:visited,
+ul.p7TKL-list-v.tkl-BGV-skyblue a:visited {
+	background-color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-BGV-silver:visited,
+ul.p7TKL-list-h.tkl-BGV-silver a:visited,
+ul.p7TKL-list-v.tkl-BGV-silver a:visited {
+	background-color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-BGV-forest:visited,
+ul.p7TKL-list-h.tkl-BGV-forest a:visited,
+ul.p7TKL-list-v.tkl-BGV-forest a:visited {
+	background-color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-BGV-lavender:visited,
+ul.p7TKL-list-h.tkl-BGV-lavender a:visited,
+ul.p7TKL-list-v.tkl-BGV-lavender a:visited {
+	background-color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-BGV-rust:visited,
+ul.p7TKL-list-h.tkl-BGV-rust a:visited,
+ul.p7TKL-list-v.tkl-BGV-rust a:visited {
+	background-color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-BGV-purple:visited,
+ul.p7TKL-list-h.tkl-BGV-purple a:visited,
+ul.p7TKL-list-v.tkl-BGV-purple a:visited {
+	background-color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-BGV-beige:visited,
+ul.p7TKL-list-h.tkl-BGV-beige a:visited,
+ul.p7TKL-list-v.tkl-BGV-beige a:visited {
+	background-color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-BGV-wine:visited,
+ul.p7TKL-list-h.tkl-BGV-wine a:visited,
+ul.p7TKL-list-v.tkl-BGV-wine a:visited {
+	background-color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-BGV-mist:visited,
+ul.p7TKL-list-h.tkl-BGV-mist a:visited,
+ul.p7TKL-list-v.tkl-BGV-mist a:visited {
+	background-color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-BGV-gold:visited,
+ul.p7TKL-list-h.tkl-BGV-gold a:visited,
+ul.p7TKL-list-v.tkl-BGV-gold a:visited {
+	background-color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-BGV-orange:visited,
+ul.p7TKL-list-h.tkl-BGV-orange a:visited,
+ul.p7TKL-list-v.tkl-BGV-orange a:visited {
+	background-color: rgb(239,118,51);
+}
+
+
+/*HOVER STATE BACKGROUND COLORS*/
+a.p7TKL.TKL.tkl-BGH-black:hover,
+ul.p7TKL-list-h.tkl-BGH-black a:hover,
+ul.p7TKL-list-v.tkl-BGH-black a:hover {
+	background-color: rgb(21,21,21);
+}
+a.p7TKL.TKL.tkl-BGH-white:hover,
+ul.p7TKL-list-h.tkl-BGH-white a:hover,
+ul.p7TKL-list-v.tkl-BGH-white a:hover {
+	background-color: rgb(255,255,255);
+}
+a.p7TKL.TKL.tkl-BGH-gray:hover,
+ul.p7TKL-list-h.tkl-BGH-gray a:hover,
+ul.p7TKL-list-v.tkl-BGH-gray a:hover {
+	background-color: rgb(134,134,134);
+}
+a.p7TKL.TKL.tkl-BGH-green:hover,
+ul.p7TKL-list-h.tkl-BGH-green a:hover,
+ul.p7TKL-list-v.tkl-BGH-green a:hover {
+	background-color: rgb(126,188,89);
+}
+a.p7TKL.TKL.tkl-BGH-mint:hover,
+ul.p7TKL-list-h.tkl-BGH-mint a:hover,
+ul.p7TKL-list-v.tkl-BGH-mint a:hover {
+	background-color: rgb(76,182,159);
+}
+a.p7TKL.TKL.tkl-BGH-blue:hover,
+ul.p7TKL-list-h.tkl-BGH-blue a:hover,
+ul.p7TKL-list-v.tkl-BGH-blue a:hover {
+	background-color: rgb(69,114,150);
+}
+a.p7TKL.TKL.tkl-BGH-red:hover,
+ul.p7TKL-list-h.tkl-BGH-red a:hover,
+ul.p7TKL-list-v.tkl-BGH-red a:hover {
+	background-color: rgb(251,11,11);
+}
+a.p7TKL.TKL.tkl-BGH-skyblue:hover,
+ul.p7TKL-list-h.tkl-BGH-skyblue a:hover,
+ul.p7TKL-list-v.tkl-BGH-skyblue a:hover {
+	background-color: rgb(140,188,208);
+}
+a.p7TKL.TKL.tkl-BGH-silver:hover,
+ul.p7TKL-list-h.tkl-BGH-silver a:hover,
+ul.p7TKL-list-v.tkl-BGH-silver a:hover {
+	background-color: rgb(230,219,201);
+}
+a.p7TKL.TKL.tkl-BGH-forest:hover,
+ul.p7TKL-list-h.tkl-BGH-forest a:hover,
+ul.p7TKL-list-v.tkl-BGH-forest a:hover {
+	background-color: rgb(107,138,85);
+}
+a.p7TKL.TKL.tkl-BGH-lavender:hover,
+ul.p7TKL-list-h.tkl-BGH-lavender a:hover,
+ul.p7TKL-list-v.tkl-BGH-lavender a:hover {
+	background-color: rgb(154,77,85);
+}
+a.p7TKL.TKL.tkl-BGH-rust:hover,
+ul.p7TKL-list-h.tkl-BGH-rust a:hover,
+ul.p7TKL-list-v.tkl-BGH-rust a:hover {
+	background-color: rgb(193,67,46);
+}
+a.p7TKL.TKL.tkl-BGH-purple:hover,
+ul.p7TKL-list-h.tkl-BGH-purple a:hover,
+ul.p7TKL-list-v.tkl-BGH-purple a:hover {
+	background-color: rgb(17,28,48);
+}
+a.p7TKL.TKL.tkl-BGH-beige:hover,
+ul.p7TKL-list-h.tkl-BGH-beige a:hover,
+ul.p7TKL-list-v.tkl-BGH-beige a:hover {
+	background-color: rgb(231,213,175);
+}
+a.p7TKL.TKL.tkl-BGH-wine:hover,
+ul.p7TKL-list-h.tkl-BGH-wine a:hover,
+ul.p7TKL-list-v.tkl-BGH-wine a:hover {
+	background-color: rgb(167,27,27);
+}
+a.p7TKL.TKL.tkl-BGH-mist:hover,
+ul.p7TKL-list-h.tkl-BGH-mist a:hover,
+ul.p7TKL-list-v.tkl-BGH-mist a:hover {
+	background-color: rgb(218,239,217);
+}
+a.p7TKL.TKL.tkl-BGH-gold:hover,
+ul.p7TKL-list-h.tkl-BGH-gold a:hover,
+ul.p7TKL-list-v.tkl-BGH-gold a:hover {
+	background-color: rgb(226,160,71);
+}
+a.p7TKL.TKL.tkl-BGH-orange:hover,
+ul.p7TKL-list-h.tkl-BGH-orange a:hover,
+ul.p7TKL-list-v.tkl-BGH-orange a:hover {
+	background-color: rgb(239,118,51);
+}
+
+
+/*ROUNDED GLASS AND BORDER STYLES*/
+a.p7TKL.TKL.tkl-BTN.tkl-rnd,
+ul.p7TKL-list-h.tkl-rnd a,
+ul.p7TKL-list-v.tkl-rnd a {
+	border-radius: 4px;
+}
+a.p7TKL.TKL.tkl-BTN.tkl-gl,
+ul.p7TKL-list-h.tkl-gl a,
+ul.p7TKL-list-v.tkl-gl a {
+	box-shadow: 
+	inset 0 1px rgba(255,255,255,0.3), 
+	inset 0 10px rgba(255,255,255,0.2), 
+	inset 0 10px 20px rgba(255,255,255,0.25), 
+	inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+a.p7TKL.TKL.tkl-BTN.tkl-BRD-dk,
+ul.tkl-BRD-dk a,
+ul.tkl-BRD-dk a:hover {
+	border: 1px solid rgba(0,0,0,0.65) !important;
+}
+a.p7TKL.TKL.tkl-BTN.tkl-BRD-lt,
+ul.tkl-BRD-lt a,
+ul.tkl-BRD-lt a:hover {
+	border: 1px solid rgba(255,255,255,0.75) !important;
+}
+/*HORIZONTAL and VERTICAL LISTS*/
+ul.p7TKL-list-h a,
+ul.p7TKL-list-v a {
+	display: block;
+}
+ul.p7TKL-list-h,
+ul.p7TKL-list-v {
+	margin-left: 0;
+	padding-left: 0;
+}
+ul.p7TKL-list-h li {
+	display: inline-block;
+	list-style-type: none;
+	margin-bottom: 3px;
+}
+ul.p7TKL-list-v li {
+	display: block;
+	margin-bottom: 3px;
+	list-style-type: none;
+}
+/*UTILITY CLASSES THAT THE UER CAN ASSIGN THEMSELVES*/
+.padded {
+	padding: 5px 8px;
+}
+.rounded {
+	border-radius: 4px;
+}
+.i-block {
+	display: inline-block;
+}

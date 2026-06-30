@@ -1,0 +1,633 @@
+/*
+ -------------------------------- 
+ PVII Zeitgeist - version: 1.0.4
+ by Project Seven Development
+ www.projectseven.com
+ --------------------------------
+*/
+
+/*
+--------------------------------------------------------
+ Reset Box Model for all elements in page
+--------------------------------------------------------
+*/
+* {box-sizing: border-box;}
+
+/*
+--------------------------------------------------------
+ Set font for all body elements and for headings
+--------------------------------------------------------
+*/
+body {
+	font-family: Montserrat, Verdana, Geneva, sans-serif;
+	font-weight: 300;
+	font-size: 100%;
+}
+.hmy-section h1, 
+.hmy-section h2, 
+.hmy-section h3, 
+.hmy-section h4, 
+.hmy-section h5 {
+	font-family: Montserrat, Verdana, Geneva, sans-serif;
+	font-weight: 600;
+}
+strong, b {font-weight: 600;}
+
+/*
+--------------------------------------------------------
+ Set font-sizes for various elements
+--------------------------------------------------------
+*/
+.hmy-section h1 {font-size: 200%;}
+.hmy-section h2 {font-size: 180%}
+.hmy-section h3 {font-size: 155%;}
+.hmy-section h4, .hmy-section h5 {font-size: 138%;}
+
+.footer {font-size: 75%;}
+
+/*
+--------------------------------------------------------
+ Root Menu Links and sub-menu links must be expressed in
+ pixel sizes. 16px is the default font-size for all
+ browsers. The first rule is for root links, the 
+ second is for sub-menu links.
+--------------------------------------------------------
+*/
+.p7AMM li a {font-size: 16px;}
+.p7AMM ul ul li a {font-size: 13px;}
+
+
+/*
+--------------------------------------------------------
+ Restrict height of logo image to a maximum of 60px
+--------------------------------------------------------
+*/
+img.z-logo, img.footer-logo {max-height: 60px;}
+
+
+/*
+--------------------------------------------------------
+ Set custom styles for the Team Grid Harmony instance 
+ in Layout-04, including animating the images on hover.
+--------------------------------------------------------
+*/
+.team-grid .hmy-section.member .hmy-content {
+	padding: 10px;
+	overflow: hidden;
+}
+.team-grid .hmy-section.member img {
+	transition: all ease-out .5s;
+	transform: scale(1);
+	transform-origin: center;
+	opacity: 1;
+}
+.team-grid .hmy-section.member img:hover {
+	transform: scale(1.75);
+	opacity: .5;
+}
+.image-caption {
+	margin: 0px;
+	letter-spacing: .5em;
+}
+.image-description {
+	font-size: 80%;
+}
+
+/*
+--------------------------------------------------------
+ Custom media queries for Team Grid. Flex-basis 50%
+ sets the grid to two boxes per row at 1280px screen
+ width, while 100% linearizes all boxes.
+--------------------------------------------------------
+*/
+@media only screen and (min-width: 0px) and (max-width: 1280px) {
+	.team-grid .hmy-section.member {flex-basis: 50% !important;}
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	.team-grid .hmy-section.member {flex-basis: 100% !important;}
+}
+
+/*
+--------------------------------------------------------
+ Handy-dandy utility rules you can apply to any element
+--------------------------------------------------------
+*/
+.centered {text-align: center;}
+.bordered {border: 1px solid;}
+.rounded {border-radius: 3px;}
+.tagline {
+	font-size: 85%;
+	letter-spacing: .25em;
+}
+.fancy {
+	border-radius: 3px;
+	box-shadow: 10px 10px 20px rgba(0,0,0,0.45);
+}
+
+.blocked-indent {
+	padding: 1% 10%;
+	line-height: 2.25;
+	font-size: 88%;
+	letter-spacing: .1em;
+}
+.bump-padding-top {
+	padding-top: 48px;
+}
+
+/*
+--------------------------------------------------------
+ Section Headers. Use this class when you want a single
+ page-wide Harmony column to act as a header between
+ sections of your page. The media query undoes the
+ large amount of top padding for linearized views.
+--------------------------------------------------------
+*/
+.section-header .hmy-content {padding: 4em 2.5em 1.5em 2.5em;}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	.section-header .hmy-content {padding: 1em 2.5em;}
+}
+
+
+/*
+--------------------------------------------------------
+ Sticky elements. Sticky elements act like elements
+ that are "position: fixed" when they are full-width.
+ When an element is not full-width, and has an adjacent
+ element that is not set to "sticky", the sticky
+ element will stick in view until a taller sibling
+ element has been scrolled its full height. 
+--------------------------------------------------------
+*/
+.header {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	z-index: 10;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+}
+.sticky .hmy-content {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 80px;
+}
+
+/*
+-------------------------------------------------------------
+ Harmony custom and exception rules. Where you see a
+ class name in front or after the Harmony element, such as:
+ ".logo .hmy-content" or ".hmy-content-wrapper.full-height", 
+ it indicates a User Class assignment in the Harmony UI.
+ ************************************************************
+ NOTE: position: sticky will cease to work if the element
+ or one of its parents is also set to overflow: hidden.
+-------------------------------------------------------------
+*/
+.hmy-content {padding: 2.5em;}
+
+.logo .hmy-content {padding: 0px 0px 0px 10px;}
+
+.nav .hmy-content {padding: 0px;}
+
+.search .hmy-content {
+	padding: 10px 6px 10px 6px;
+	text-align: right;
+}
+.hmy-content-wrapper.intro .hmy-content {
+	max-width: 1000px;
+	margin: auto;
+}
+.p7HMY.hmy-color-root-gray,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gray,
+.p7HMY.hmy-color-root-gray.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gray.transparent {
+	color: #FFF; /*we change text color for the gray theme*/
+}
+
+/*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ Setting a Harmony content wrapper to a 
+ min-heigt of 100vh sets that element to 
+ the full height of the browser window.
+ When we do this, it is also advisable to
+ use the Harmony UI to vertically center
+ the content within.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*/
+.hmy-content-wrapper.full-height {
+	min-height: 100vh;
+}
+.hmy-content-wrapper.intro {
+	min-height: 100vh;
+	border-bottom: 1px solid;
+}
+
+
+/*
+---------------------------------------------------------------
+ Special fixed background images. The first class "top-panel"
+ sets the smoky wisp background in the first content box in
+ layout-01. The second class "banner-01" is for the large, 
+ full-width image of the woman in the hat in layouts 01-03.
+---------------------------------------------------------------
+*/
+.top-panel {
+	background-image: url(img/smoke.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;
+}
+
+.banner-01 {
+    background-image: url(img/peeking-out.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*
+**************************************************************
+ The following classes are for the various background
+ images used. The first part of the class name relates to the
+ layout page number. ".zeit-2 .spirit" is assigned to the 
+ "spirit" element in layout-02.
+***************************************************************
+ Each of these elments is assigned both a linear gradient and
+ a conventional background image, with the gradient serving as
+ a mask between the background and the actual content.
+***************************************************************
+*/
+.zeit-2 .spirit {
+	color: #FFF;
+	background: linear-gradient(rgba(120,120,120,0.98), rgba(120,120,120,0.30)), url(img/face.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.zeit-3 .spirit {
+	color: #FFF;
+	background: linear-gradient(rgba(120,120,120,0.98), rgba(120,120,120,0.30)), url(img/face.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+
+/*
+***************************************
+         MENU CUSTOMIZATIONS
+***************************************
+*/
+
+/*
+---------------------------------------------------------------------------------------
+ Customize pointer arrow between menu trigger and sub-menu, when sub-menu is showing. 
+---------------------------------------------------------------------------------------
+*/
+.p7AMM.amm-pointer ul ul:after {
+	border-top: 15px solid #FFF;
+	border-left: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 15px solid transparent;
+	top: -10px;
+	left: 32px;
+}
+
+
+/*
+**********************************************
+ Set Root links to be visible in design view.
+ This rule has no effect in browsers and is
+ used in concert with the amm-noscript class
+ to fix flaws in DW design view.
+**********************************************
+*/
+.p7AMM.amm-noscript ul li a {background-color: #000 !important;}
+
+
+/*
+*****************************************************
+ Remove default white space between root menu items.
+*****************************************************
+*/
+.p7AMM ul li {padding: 0;}
+
+
+/*
+*****************************************************
+   Add border separators between root menu items.
+   Remove borders for sub-menu items.
+   Remove border from last root menu item.
+   Add a drop shadow to root items on hover.
+   Remove drop shadow from sub-menu items.
+*****************************************************
+*/
+.p7AMM li {
+	border-right: 1px dotted rgba(255,255,255,0.35); 
+}
+.p7AMM ul ul li, .p7AMM ul ul li:hover {
+	border-right: none;
+}
+.p7AMM li.last-root {
+	border-right: none;
+}
+.p7AMM ul ul li,
+.p7AMM ul ul li:last-child {
+	border-right: none;
+}
+
+/*
+**********************************************************************
+Remove background color for root menu items when Black theme is used.
+If you change the color in the AMM UI, you must change color name for
+this rule from black.
+**********************************************************************
+*/
+.p7AMM.amm-rootlinks-black ul a {
+	background-color: transparent;
+}
+.p7AMM.amm-rootlinks-white ul a:hover, .p7AMM.amm-rootlinks-white ul a:focus, .p7AMM.amm-rootlinks-white ul a.amm-trigger.open {
+	background-color: rgb(20,20,20);
+	color: #FFF;
+}
+/*
+****************************************************
+ We nudge the position of the triangle drop-down
+ indicators to the right by 4 pixels.
+****************************************************
+*/
+.p7AMM a.amm-trigger {
+	background-position: 4px center;
+}
+.p7AMM ul ul a.amm-trigger {
+	background-position: 0px center;
+}
+/*
+****************************************************
+    Adjust Padding on root level menu links
+****************************************************
+*/
+.p7AMM li a { padding: 20px 24px; }
+
+/*
+****************************************************
+   Set the search icon (a character entity) size
+****************************************************
+*/
+.p7AMM ul li a.search {
+	font-size: 32px;
+}
+/*
+*****************************************************
+ Reset line height for ALL root menu items to 
+ ensure alignment with search icon, which is set to 
+ a larger font size. Then reset sub-menu line 
+ height to normal.
+*****************************************************
+*/
+.p7AMM li a { line-height: 24px; }
+.p7AMM ul ul li a {line-height: normal;}
+
+/*
+*****************************************************
+ Make pop-down trigger stick to gray background 
+ while pop-down box is showing.
+*****************************************************
+*/
+.search.scs-active {
+	background-color: rgb(134,134,134) !important;
+	color: #FFF !important;
+}
+
+/*
+*****************************************************
+  Menu Hamburger bar. We set background color and
+  set to block so that entire bar is "live".
+  We also disable Hamburger text (Show Menu)
+*****************************************************
+*/
+.amm-toolbar {background-color: #444 !important;}
+.amm-toolbar a {display: block !important;}
+.p7AMM.amm-responsive .amm-toolbar.closed a:before,
+.p7AMM.amm-responsive .amm-toolbar.opened a:before {
+	display: none;
+}
+
+/*
+---------------------------------------------------------------------------
+ Search Pop-Down. Note that the popdown can be used for anything you
+ want. It does not have to house a search box.
+---------------------------------------------------------------------------
+*/
+.popper {
+	transition: all ease-out .75s;
+	position: absolute;
+	left: 0px;
+	z-index: -1;
+	width: 100%;
+	top: -100%;
+	opacity: 0;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	background-color: rgba(115,115,115,0.9);
+}
+.hmy-noscript .popper {
+	position: static;
+}
+#popper.show-popper {
+	top: 100%;
+	opacity: 1;
+}
+#popper.hide-popper {
+	top: -100%;
+}
+
+/*
+**************************************************
+ The search form elements.
+**************************************************
+*/
+input#search, input#do-search {
+	box-sizing: border-box;
+	border: 1px solid #000;
+	padding: 15px;
+	background-color: #919191;
+	color: #000;
+	transition: all linear .5s;
+	width: 100%;
+	border-radius: 3px;
+}
+input#search:focus {
+	background-color: #222;
+	color: #FFF;
+}
+input#search {
+	max-width: 400px;
+}
+input#do-search {
+	max-width: 100px;
+	min-width: 6em;
+	color: #000;
+}
+input#do-search:hover {
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+	color: #FFF;
+}
+input::-webkit-input-placeholder { color: #000; opacity: .5; }
+input::placeholder { color: #000; opacity: .5; }
+
+input:focus::-webkit-input-placeholder { opacity: 0; }
+input:focus::placeholder { opacity: 0; }
+
+
+
+/*
+-------------------------------------------------------------------------
+                           Media Queries
+-------------------------------------------------------------------------
+*/
+
+/*
+*********************************
+      Basic Cosmetics
+*********************************
+*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	.footer .hmy-content.hmy-left, .footer .hmy-content.hmy-right {text-align: center;}
+	.footer p {margin: 0px;}
+	.hmy-content-wrapper.search .hmy-content {text-align: center;}
+	input#search {max-width: 75%;}
+	input#do-search {max-width: 20%; min-width: 0px;}
+	.hmy-content-wrapper {min-height: 0px !important;}
+	.p7AMM ul li a.search {padding: 11px 20px 17px 20px;}
+
+}
+
+/*
+******************************************************
+ Read by IE10 and 11 ONLY. These browsers do not do 
+ well with viewport height and vertical centering.
+ We add significant top/bottom padding to simulate
+ vertical centering.
+******************************************************
+*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.hmy-content-wrapper.intro {min-height: 0; padding: 10% 0;}
+	.p7AMM li a {line-height: 20px;}
+}
+
+
+/* 
+*******************************************************
+Overrides to default Adaptive Menu Magic media query 
+*******************************************************
+*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+.p7AMM.amm-responsive {
+	padding: 0px !important;
+}
+
+.p7AMM.amm-fixed {
+    max-height: 100% !important;
+    overflow-y: auto;
+}
+
+.p7AMM.amm-responsive li {
+	text-align: left !important;
+	display: block;
+	max-height: 700777px;
+}
+.p7AMM.amm-responsive a { padding: 10px 24px; }
+
+.p7AMM.amm-responsive.amm-pointer ul ul:after {
+	display: none !important;
+}
+.p7AMM.amm-responsive ul ul {
+	width: 100%;
+	min-width: 0px;
+	margin: 0px !important;
+	position: relative !important;
+}
+.p7AMM.amm-responsive ul,
+.p7AMM.amm-responsive a {
+	border-radius: 0px !important;
+}
+.p7AMM.amm-responsive .amm-toolbar {
+	display: block;
+	text-align: right;
+	margin: 0px 0px;
+	padding: 0px 10px;
+	background-color: #151515;
+	color: #FFF !important;
+}
+.p7AMM.amm-responsive .amm-toolbar a {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 2rem;
+	color: #FFF;
+	opacity: 0.7;
+}
+.p7AMM.amm-responsive .amm-toolbar a:hover {
+	opacity: 1;
+}
+.p7AMM.amm-responsive .amm-toolbar.amm-toggle-text.closed a:before {
+	display: inline-block;
+	content: "Show Menu";
+}
+.p7AMM.amm-responsive .amm-toolbar.amm-toggle-text.opened a:before {
+	display: inline-block;
+	content: "Hide Menu";
+}
+
+.p7AMM.amm-responsive ul.closed {
+	display: none;
+}
+.p7AMM.amm-responsive ul.opened {
+	display: block;
+}
+.p7AMM.amm-responsive li.amm-more {
+	display: none !important;
+}
+.p7AMM.amm-responsive li.amm-root-moved {
+	position: relative !important;
+	top: 0px !important;
+	left: 0px !important;
+}
+}
+
+/* 
+****************************************************
+    Overrides to default Harmony Media Queries
+****************************************************
+*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+.p7HMY .hmy-section {flex-basis: 100% !important;}
+.hmy-content {padding: 1.5em;}
+.p7HMY .hmy-section .hmy-content-wrapper {border-radius: 0px !important; border: none !important;}
+.p7HMY.hmy-legacy .hmy-section {float: none !important; width: 100% !important;}
+}
+
+/* 
+**************************************
+            Tablets 
+**************************************
+*/
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+  div {background-attachment: scroll !important;}
+  .zeit-5 .sidebar, .zeit-6 .sidebar {background-size: contain; background-position: top;}
+  .hmy-content-wrapper.hmy-vertical-center.sticky {display: block;}
+}
+
+/* 
+**************************************
+            Smartphones
+**************************************
+*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+     div {background-attachment: scroll !important;}
+  	.zeit-5 .sidebar, .zeit-6 .sidebar {background-size: contain; background-position: top;}
+}
+
+/*End Media Queries*/

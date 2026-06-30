@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import bodyHtml from '../fragments/home-body.html?raw';
+
+const title = '手塚雄二　公式ホームページ　TEZUKA Yuji - Official Home Page';
+const description =
+  '手塚雄二は日本美術院同人・代表理事。日本画家として花月草星を現代の美に映す作品で評価が高く、寛永寺根本中堂天井絵「叡嶽双龍」などを手がけています。';
+---
+
+<BaseLayout title={title} description={description} ogImage="/site-assets/coverimage/ryu.jpg">
+  <Fragment set:html={bodyHtml} />
+</BaseLayout>

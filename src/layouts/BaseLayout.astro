@@ -1,0 +1,49 @@
+---
+import SocialMeta from '../components/SocialMeta.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  bodyId?: string;
+  ogImage?: string;
+  ogUrl?: string;
+}
+
+const {
+  title = '手塚雄二　公式ホームページ　TEZUKA Yuji - Official Home Page',
+  description = '手塚雄二は日本美術院同人であり、東京芸術大学の日本画科教授です。手塚雄二の描く日本画は、花月草星を現代の日本の美に映す芸術として評価が高く、その作品の数々は圧倒的な存在感を放っております。',
+  bodyId = 'homePage',
+  ogImage,
+  ogUrl,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="title" content="手塚雄二　日本美術院同人　日本画家　東京芸術大学日本画科教授" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="手塚雄二、東京芸術大学、東京藝術大学、日本画、日本画家、日本画科教授、日本美術院、日本美術院同人、院展、春の院展、内閣総理大臣賞、外務大臣賞、大観賞、春季展賞、奨励賞、花月草星、"
+    />
+    <meta name="robots" content="ALL" />
+    <meta name="author" content="手塚雄二" />
+    <SocialMeta title={title} description={description} image={ogImage} url={ogUrl} />
+    <link href="css/site.css" rel="stylesheet" />
+    <script is:inline src="js/gimmicks.js"></script>
+    <style is:global>
+      body {
+        background-color: #fff;
+        background-image: url(site-assets/images/home_body_background.jpg);
+        background-repeat: repeat-x;
+      }
+    </style>
+  </head>
+  <body id={bodyId}>
+    <slot />
+  </body>
+</html>

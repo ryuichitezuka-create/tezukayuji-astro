@@ -1,0 +1,229 @@
+{
+  "title": "秋の院展　出品作品一覧",
+  "navLabel": "秋の院展出品作品",
+  "id": "table1",
+  "slides": [
+    {
+      "full": "/site-assets/table1/fullsize/2025_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2025_tmb.jpg",
+      "title": "2025_fs",
+      "description": "月の夜風\n\n              第１１０回　院展２０２５年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2024_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2024_tmb.jpg",
+      "title": "2024_fs",
+      "description": "霞野\n\n              第１０９回　院展２０２４年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2023_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2023_tmb.jpg",
+      "title": "2023_fs",
+      "description": "双樹\n\n              第１０８回　院展２０２３年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2022_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2022_tmb.jpg",
+      "title": "2022_fs",
+      "description": "池之端\n\n              第１０７回　院展２０２２年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2021_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2021_tmb.jpg",
+      "title": "2021_fs",
+      "description": "月乃葉\n\n              第１０６回　院展２０２１年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2020_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2020_tmb.jpg",
+      "title": "2020_fs",
+      "description": "昇陽\n\n              第１０５回　院展２０２０年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2019_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2019_tmb.jpg",
+      "title": "2019_fs",
+      "description": "春の夢 \n\n              第１０４回　院展２０１９年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2018_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2018_tmb.jpg",
+      "title": "2018_fs",
+      "description": "月空 \n\n              第１０３回　院展２０１８年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2017_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2017_tmb.jpg",
+      "title": "2017_fs",
+      "description": "新緑の沼 \n\n              第１０２回　院展２０１７年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2016_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2016_tmb.jpg",
+      "title": "2016_fs",
+      "description": "冬の川 \n\n              第１０１回　院展２０１６年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2015_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2015_tmb.jpg",
+      "title": "2015_fs",
+      "description": "不忍 \n\n              第１００回　院展２０１５年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2014_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2014_tmb.jpg",
+      "title": "2014_fs",
+      "description": "春夜 \n\n              第９９回　院展２０１４年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2013_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2013_tmb.jpg",
+      "title": "2013_fs",
+      "description": "遠望立山 \n\n              第９８回　院展２０１３年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2012_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2012_tmb.jpg",
+      "title": "2012_fs",
+      "description": "天の橋立 \n\n              第９７回　院展２０１２年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2011_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2011_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "奥入瀬翔流\n\n              第９６回　院展２０１１年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2010_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2010_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "奥入瀬飛流 \n\n              第９５回　院展２０１０年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2009_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2009_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集:",
+      "description": "こかげみち \n\n              第９４回　院展２００９年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2008_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2008_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集:",
+      "description": "朝霧 \n\n              第９３回　院展２００８年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2007_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2007_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "憬 \n\n              第９２回　院展２００７年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2006_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2006_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "迦羅須 \n\n              第９１回　院展２００６年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2005_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2005_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "きらめきの森 \n\n              第９０回　院展２００５年"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2004_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2004_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "夕霧 \n\n              第８９回　院展２００４年 175.0x345.6cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2003_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2003_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "海霧 \n\n              第８８回　院展２００３年 168.0x348.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2002_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2002_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "創星那智 \n\n              第８７回　院展２００２年 173.0x280.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2001_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2001_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "星と月と \n\n              第８６回　院展２００１年 161.0x274.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/2000_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2000_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "風雲風神 \n\n              第８５回　院展２０００年 174.0x696.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1999_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1999_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "雷神雷雲 \n\n              第８４回　院展１９９９年 174.0x696.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1998_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1998_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "夕雅 \n\n              第８３回　院展１９９８年 175.0x360.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1997_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1997_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "海音 \n\n              第８２回　院展１９９７年 164.0x720.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1996_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1996_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "波洸 \n\n              第８１回　院展１９９６年 175.0x360.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1994_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1994_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "幻の瀧 \n\n              第７９回　院展１９９４年 199.4x390.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1992_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1992_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "裏窓 \n\n              第７７回　院展１９９２年 217.0x166.6cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1991_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1991_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "市民 \n\n              第７６回　院展１９９１年 174.0x210.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1990_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1990_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "嶺 \n\n              第７５回　院展１９９０年 206.5x178.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1989_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1989_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "潤 \n\n              第７４回　院展１９８９年 171.5x216.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1988_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1988_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "�R \n\n              第７３回　院展１９８８年 170.0x215.0cm"
+    },
+    {
+      "full": "/site-assets/table1/fullsize/1987_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/1987_tmb.jpg",
+      "title": "手�恬Y二　院展　作品集: ",
+      "description": "陽黄 \n\n              第７２回　院展１９８７年 169.0x214.0cm"
+    }
+  ]
+}

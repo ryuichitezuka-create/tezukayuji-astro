@@ -1,0 +1,484 @@
+/*
+*****************************************
+ PVII Harmony: CSS Page Grid Framework
+ by Project Seven Development - ver 1.2.0
+ www.projectseven.com
+*****************************************
+*/
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 100%;
+	margin: 0px;
+}
+.p7HMY {
+	margin: auto;
+}
+
+/*
+******************************
+         COLORS
+******************************
+*/
+.p7HMY.hmy-color-root-gray,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gray {
+	background-color: rgb(134,134,134);
+	color: #000;
+}
+.p7HMY.hmy-color-root-gray.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gray.transparent {
+	background-color: rgba(134,134,134,0.90);
+	color: #000;
+}
+.p7HMY.hmy-color-root-black,
+.p7HMY .hmy-content-wrapper.hmy-color-content-black {
+	background-color: rgb(21,21,21);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-black.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-black.transparent {
+	background-color: rgba(21,21,21,0.90);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-white,
+.p7HMY .hmy-content-wrapper.hmy-color-content-white {
+	background-color: rgb(255,255,255);
+	color: #000;
+}
+.p7HMY.hmy-color-root-white.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-white.transparent {
+	background-color: rgba(255,255,255,0.90);
+	color: #000;
+}
+.p7HMY.hmy-color-root-green,
+.p7HMY .hmy-content-wrapper.hmy-color-content-green {
+	background-color: rgb(126,188,89);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-green.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-green.transparent {
+	background-color: rgba(126,188,89,0.90);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-mint,
+.p7HMY .hmy-content-wrapper.hmy-color-content-mint {
+	background-color: rgb(76,182,159);
+	color: #000;
+}
+.p7HMY.hmy-color-root-mint.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-mint.transparent {
+	background-color: rgba(76,182,159,0.90);
+	color: #000;
+}
+.p7HMY.hmy-color-root-blue,
+.p7HMY .hmy-content-wrapper.hmy-color-content-blue {
+	background-color: rgb(69,114,150);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-blue.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-blue.transparent {
+	background-color: rgba(69,114,150,0.90);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-red,
+.p7HMY .hmy-content-wrapper.hmy-color-content-red {
+	background-color: rgb(251,11,11);
+	color: #000;
+}
+.p7HMY.hmy-color-root-red.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-red.transparent {
+	background-color: rgba(251,11,11,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-skyblue,
+.p7HMY .hmy-content-wrapper.hmy-color-content-skyblue {
+	background-color: rgb(140,188,208);
+	color: #000;
+}
+.p7HMY.hmy-color-root-skyblue.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-skyblue.transparent {
+	background-color: rgba(140,188,208,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-silver,
+.p7HMY .hmy-content-wrapper.hmy-color-content-silver {
+	background-color: rgb(230,219,201);
+	color: #000;
+}
+.p7HMY.hmy-color-root-silver.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-silver.transparent {
+	background-color: rgba(230,219,201,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-purple,
+.p7HMY .hmy-content-wrapper.hmy-color-content-purple {
+	background-color: rgb(17,28,48);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-purple.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-purple.transparent {
+	background-color: rgba(17,28,48,0.90);
+	color: #FFF;
+}
+
+.p7HMY.hmy-color-root-lavender,
+.p7HMY .hmy-content-wrapper.hmy-color-content-lavender {
+	background-color: rgb(154,77,85);
+	color: #fff;
+}
+.p7HMY.hmy-color-root-lavender.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-lavender.transparent {
+	background-color: rgba(154,77,85,0.90);
+	color: #fff;
+}
+
+.p7HMY.hmy-color-root-beige,
+.p7HMY .hmy-content-wrapper.hmy-color-content-beige {
+	background-color: rgb(231,213,175);
+	color: #000;
+}
+.p7HMY.hmy-color-root-beige.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-beige.transparent {
+	background-color: rgba(231,213,175,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-wine,
+.p7HMY .hmy-content-wrapper.hmy-color-content-wine {
+	background-color: rgb(167,27,27);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-wine.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-wine.transparent {
+	background-color: rgba(167,27,27,0.90);
+	color: #FFF;
+}
+
+.p7HMY.hmy-color-root-forest,
+.p7HMY .hmy-content-wrapper.hmy-color-content-forest {
+	background-color: rgb(107,138,85);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-forest.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-forest.transparent {
+	background-color: rgba(107,138,85,0.90);
+	color: #FFF;
+}
+
+.p7HMY.hmy-color-root-mist,
+.p7HMY .hmy-content-wrapper.hmy-color-content-mist {
+	background-color: rgb(218,239,217);
+	color: #000;
+}
+.p7HMY.hmy-color-root-mist.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-mist.transparent {
+	background-color: rgba(218,239,217,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-rust,
+.p7HMY .hmy-content-wrapper.hmy-color-content-rust {
+	background-color: rgb(193,67,46);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-rust.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-rust.transparent {
+	background-color: rgba(193,67,46,0.90);
+	color: #FFF;
+}
+
+.p7HMY.hmy-color-root-silverblue,
+.p7HMY .hmy-content-wrapper.hmy-color-content-silverblue {
+	background-color: rgb(75,103,119);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-silverblue.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-silverblue.transparent {
+	background-color: rgba(75,103,119,0.90);
+	color: #FFF;
+}
+
+.p7HMY.hmy-color-root-gold,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gold {
+	background-color: rgb(226,160,71);
+	color: #000;
+}
+.p7HMY.hmy-color-root-gold.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-gold.transparent {
+	background-color: rgba(226,160,71,0.90);
+	color: #000;
+}
+
+.p7HMY.hmy-color-root-orange,
+.p7HMY .hmy-content-wrapper.hmy-color-content-orange {
+	background-color: rgb(239,118,51);
+	color: #FFF;
+}
+.p7HMY.hmy-color-root-orange.transparent,
+.p7HMY .hmy-content-wrapper.hmy-color-content-orange.transparent {
+	background-color: rgba(239,118,51,0.90);
+	color: #FFF;
+}
+
+/*
+******************************
+           BORDERS
+******************************
+*/
+.p7HMY.hmy-border-root-all,
+.p7HMY .hmy-content-wrapper.hmy-border-content-all {
+	border: 1px solid;
+}
+.p7HMY.hmy-border-root-top,
+.p7HMY .hmy-content-wrapper.hmy-border-content-top {
+	border-top: 1px solid;
+}
+.p7HMY.hmy-border-root-right,
+.p7HMY .hmy-content-wrapper.hmy-border-content-right {
+	border-right: 1px solid;
+}
+.p7HMY.hmy-border-root-bottom,
+.p7HMY .hmy-content-wrapper.hmy-border-content-bottom {
+	border-bottom: 1px solid;
+}
+.p7HMY.hmy-border-root-left,
+.p7HMY .hmy-content-wrapper.hmy-border-content-left {
+	border-left: 1px solid;
+}
+.p7HMY.hmy-border-root-left-right,
+.p7HMY .hmy-content-wrapper.hmy-border-content-left-right {
+	border-left: 1px solid;
+	border-right: 1px solid;
+}
+.p7HMY.hmy-border-root-top-bottom,
+.p7HMY .hmy-content-wrapper.hmy-border-content-top-bottom {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+.border-black {
+	border-color: #000 !important;
+}
+.border-white {
+	border-color: #FFF !important;
+}
+
+/*
+******************************
+       BORDER-RADIUS
+******************************
+*/
+.p7HMY.hmy-root-rounded,
+.p7HMY .hmy-content-wrapper.hmy-content-rounded {
+	border-radius: 5px;
+}
+
+/*
+********************************
+     Section Text Styles
+********************************
+*/
+.p7HMY .hmy-section a.text-link {
+	border-bottom: 1px dotted;
+	transition: all linear .5s;
+	color: inherit;
+	text-decoration: none;
+}
+.p7HMY .hmy-section a.text-link:hover {
+	border-bottom: 1px solid;
+}
+.hmy-section .hmy-img a,
+.hmy-section .hmy-img a:hover {
+	border: none;
+	display: block;
+}
+.hmy-section h1 {
+	font-size: 1.5rem;
+}
+.hmy-section h2 {
+	font-size: 1.4rem;
+}
+.hmy-section h3 {
+	font-size: 1.3rem;
+}
+.hmy-section h4, .hmy-section h5 {
+	font-size: 1.2rem;
+}
+.hmy-section h1,
+.hmy-section h2,
+.hmy-section h3,
+.hmy-section h4,
+.hmy-section h5 {
+	margin: 24px 0px 0px 0px;
+	font-weight: bold;
+}
+.hmy-section h1:first-child,
+.hmy-section h2:first-child,
+.hmy-section h3:first-child,
+.hmy-section h4:first-child,
+.hmy-section h5:first-child {
+	margin: 0px;
+}
+.hmy-section p {
+	margin: 6px 0px 10px 0px;
+	line-height: 1.6;
+}
+
+/*
+********************************
+       CONTENT AREAS
+********************************
+*/
+.p7HMY .hmy-content p:first-child {margin-top: 0px;}
+.rounded {border-radius: 4px;}
+.hmy-content {padding: 20px;}
+
+/*
+**********************************
+   CORE STYLES - DO NOT EDIT
+**********************************
+*/
+
+.p7HMY {
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	display: -webkit-box;
+	display: flex;
+}
+.hmy-section {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	box-sizing: border-box;
+	display: flex;
+}
+.hmy-content-wrapper {
+	box-sizing: border-box;
+	width: 100%;
+}
+.hmy-content {
+	box-sizing: border-box;
+}
+.hmy-vertical-center.hmy-content-wrapper {
+	display: inline-flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}
+.p7HMY img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	vertical-align: bottom;
+}
+.hmy-box-separation .hmy-content-wrapper {
+	margin: 5px;
+	box-sizing: border-box;
+	position: relative;
+}
+.hmy-overflow {
+	overflow: hidden;
+}
+/*
+*************************
+  Video-Map Iframe Styles
+*************************
+*/
+.hmy-video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0px;
+	overflow: hidden;
+}
+.hmy-video-wrapper iframe, .hmy-video-wrapper object, .hmy-video-wrapper embed { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+}
+
+.hmy-map-wrapper {
+	position: relative; 
+	padding-bottom: 100%; 
+	padding-top: 0px; 
+	height: 0px; 
+	overflow: hidden; 
+	margin-bottom: 20px;
+}
+.hmy-map-wrapper iframe, .hmy-map-wrapper object, .hmy-map-wrapper embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.hmy-video-wrapper iframe,
+.hmy-map-wrapper iframe {
+	box-sizing: border-box;
+}
+.hmy-frame-border iframe {
+	border: 1px solid #000 !important;
+}
+.hmy-frame-rnd iframe {
+	border-radius: 5px;
+}
+
+
+/*
+**********************************
+     Legacy Browser Rules
+**********************************
+*/
+.p7HMY.hmy-legacy {
+	overflow: hidden;
+	display: block;
+}
+.p7HMY.hmy-legacy .hmy-section {
+	display: block;
+	float: left;
+	box-sizing: border-box;
+	padding: 0px !important;
+}
+/*
+***********************************
+        Style Options 
+***********************************
+*/
+.hmy-no-pad.hmy-content {padding: .5px 0px !important;}
+.no-pad {padding: 0px !important;}
+.hmy-center {text-align: center;}
+.hmy-right {text-align: right;}
+.hmy-left {text-align: left;}
+
+/*
+***********************************************
+    No Script Rules... For DW Design View
+***********************************************
+*/
+.p7HMY.hmy-noscript {}
+
+
+/*
+***********************************************
+               Media Queries
+***********************************************
+*/
+@media only screen and (min-width: 0px) and (max-width: 1025px) {
+
+}
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+body {font-size: 95%;}
+html {-webkit-text-size-adjust: 100%;}
+.p7HMY .hmy-section .p7HMY .hmy-section {flex-basis: 100% !important;}
+.p7HMY.hmy-legacy .hmy-section .p7HMY .hmy-section {float: none !important; width: 100% !important;}
+}
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+body {font-size: 90%;}
+.p7HMY .hmy-section {flex-basis: 100% !important;}
+.p7HMY .hmy-section .hmy-content-wrapper {border-radius: 0px !important; border-left: none !important; border-right: none !important;}
+.p7HMY.hmy-legacy .hmy-section {float: none !important; width: 100% !important;}
+}
+

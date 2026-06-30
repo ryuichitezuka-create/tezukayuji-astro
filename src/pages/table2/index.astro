@@ -1,0 +1,9 @@
+---
+import GalleryLayout from '../../layouts/GalleryLayout.astro';
+import ArtGallery from '../../components/ArtGallery.astro';
+import data from '../../data/table2.json';
+---
+
+<GalleryLayout title={data.title} current="table2" headingFirst>
+  <ArtGallery id={data.id} title={data.title} slides={data.slides} />
+</GalleryLayout>
