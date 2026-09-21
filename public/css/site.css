@@ -334,6 +334,23 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
+.broadcast-notice--group {
+  max-width: 920px;
+}
+
+.broadcast-notice--group .broadcast-notice-title {
+  font-size: 1.15rem;
+}
+
+.broadcast-notice--group .qgm-col .broadcast-notice-lead {
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.broadcast-notice--group .qgm-col .broadcast-notice-body {
+  font-size: 0.88rem;
+}
+
 .broadcast-notice-meta {
   display: flex;
   align-items: baseline;
