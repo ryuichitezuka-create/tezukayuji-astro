@@ -342,6 +342,13 @@ a { color: inherit; }
   font-size: 1.15rem;
 }
 
+.broadcast-notice-status {
+  margin: -0.35em 0 0.75em;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .broadcast-notice--group .qgm-col .broadcast-notice-lead {
   text-align: left;
   font-size: 0.92rem;
