@@ -338,6 +338,24 @@ a { color: inherit; }
   max-width: 920px;
 }
 
+.broadcast-notice--group .broadcast-notice-grid {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.broadcast-notice--group .broadcast-notice-col--white {
+  background: #fff;
+}
+
+.broadcast-notice--group .broadcast-notice-col--beige {
+  background: #f5f0e6;
+}
+
+.broadcast-notice--group .broadcast-notice-col--beige .broadcast-notice-schedule {
+  background: rgba(255, 255, 255, 0.7);
+}
+
 .broadcast-notice--group .broadcast-notice-title {
   font-size: 1.15rem;
 }
