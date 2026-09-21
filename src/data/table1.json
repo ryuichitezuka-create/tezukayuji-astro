@@ -4,6 +4,12 @@
   "id": "table1",
   "slides": [
     {
+      "full": "/site-assets/table1/fullsize/2026_fs.jpg",
+      "thumb": "/site-assets/table1/thumbs/2026_tmb.jpg",
+      "title": "2026_fs",
+      "description": "阿\n\n              第１１１回　院展２０２６年"
+    },
+    {
       "full": "/site-assets/table1/fullsize/2025_fs.jpg",
       "thumb": "/site-assets/table1/thumbs/2025_tmb.jpg",
       "title": "2025_fs",
