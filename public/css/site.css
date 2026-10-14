@@ -33,6 +33,11 @@ a { color: inherit; }
   background: #fff;
 }
 
+/* JS 実行前からヒーロー行の高さを確保（CLS 対策） */
+#p7LBM_1 > .lbm-row:first-child {
+  min-height: 510px;
+}
+
 .lbm-row { display: block; }
 .lbm-col-wrapper { width: 100%; }
 .lbm-column.width-100 { width: 100%; }
@@ -56,12 +61,15 @@ a { color: inherit; }
   border: none;
 }
 .p7IGM03_IGMloading { display: none; }
+.p7IGMimage-wrapper,
 .p7IGMimage-wrapper.ken-burns-viewport {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 400px;
+  min-height: 400px;
   background: transparent;
+  contain: layout style paint;
 }
 .ken-burns-stage {
   position: absolute;
@@ -77,6 +85,17 @@ a { color: inherit; }
 .ken-burns-layer.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+/* LCP: 1 枚目は JS 前から不透明（フェードイン待ちしない） */
+.ken-burns-layer--initial.is-visible {
+  opacity: 1;
+  transition: none;
+}
+.ken-burns-layer picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  margin: 0;
 }
 .ken-burns-layer img {
   position: absolute;
@@ -94,9 +113,39 @@ a { color: inherit; }
 .ken-burns-layer img.kb-running {
   transition: transform linear;
 }
-.p7IGM03_image.legacy-hidden { display: none !important; }
-.p7IGM03_fs_img.is-fading { opacity: 0; }
-.p7IGM03_thumbswrapper { margin-top: 8px; text-align: center; }
+.ken-burns-viewport.ken-burns-paused .ken-burns-layer img.kb-running {
+  transition: none;
+}
+.p7IGM03_thumbswrapper {
+  margin-top: 8px;
+  text-align: center;
+}
+.p7IGM03_thumbslist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.p7IGM03_thumbslist li a {
+  display: block;
+  width: 64px;
+  height: 48px;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+.p7IGM03_thumbslist li a.is-active {
+  border-color: #222;
+}
+.IGM-arrows .arrow-left,
+.IGM-arrows .arrow-right {
+  display: inline-block;
+  vertical-align: middle;
+}
 .IGMno-display { display: none !important; }
 
 /* ---- タブパネル ---- */
@@ -127,8 +176,15 @@ a { color: inherit; }
 }
 .opm-tabs ul li a.open::before { content: "✓ "; }
 .opm-panel-wrapper { background: #fff; color: #000; }
-.opm-panel { display: none; }
-.opm-panel.is-active { display: block; }
+.opm-panel {
+  display: none;
+  content-visibility: hidden;
+  contain-intrinsic-size: auto 600px;
+}
+.opm-panel.is-active {
+  display: block;
+  content-visibility: visible;
+}
 .opm-noscript .opm-panel.is-active { display: block; }
 .opm-panel-content { padding: 20px 36px; }
 

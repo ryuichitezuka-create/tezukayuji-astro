@@ -7,6 +7,12 @@ interface Props {
   bodyId?: string;
   ogImage?: string;
   ogUrl?: string;
+  /** LCP ヒーロー画像（ホーム）の先読み */
+  lcpPreload?: {
+    avif?: string;
+    webp?: string;
+    jpeg?: string;
+  };
 }
 
 const {
@@ -15,6 +21,7 @@ const {
   bodyId = 'homePage',
   ogImage,
   ogUrl,
+  lcpPreload,
 } = Astro.props;
 ---
 
@@ -33,8 +40,22 @@ const {
     <meta name="robots" content="ALL" />
     <meta name="author" content="手塚雄二" />
     <SocialMeta title={title} description={description} image={ogImage} url={ogUrl} />
+    {
+      lcpPreload?.avif && (
+        <link rel="preload" as="image" href={lcpPreload.avif} type="image/avif" fetchpriority="high" />
+      )
+    }
+    {
+      lcpPreload?.webp && (
+        <link rel="preload" as="image" href={lcpPreload.webp} type="image/webp" fetchpriority="high" />
+      )
+    }
+    {
+      lcpPreload?.jpeg && !lcpPreload.webp && !lcpPreload.avif && (
+        <link rel="preload" as="image" href={lcpPreload.jpeg} fetchpriority="high" />
+      )
+    }
     <link href="css/site.css" rel="stylesheet" />
-    <script is:inline src="js/gimmicks.js"></script>
     <style is:global>
       body {
         background-color: #fff;
@@ -45,5 +66,6 @@ const {
   </head>
   <body id={bodyId}>
     <slot />
+    <script is:inline src="js/gimmicks.js" defer></script>
   </body>
 </html>

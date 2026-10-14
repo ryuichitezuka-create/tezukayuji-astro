@@ -50,6 +50,69 @@
     return 'translate(-50%, -50%) scale(' + s + ') translate(' + x + '%, ' + y + '%)';
   }
 
+  /** フルサイズ JPEG href → 表示用軽量 URL（WebP 優先） */
+  function coverDisplayUrls(jpgHref) {
+    var base = (jpgHref || '').replace(/\.jpg$/i, '');
+    return {
+      webp: base + '-1000w.webp',
+      jpg: base + '-1000w.jpg',
+      legacy: jpgHref,
+    };
+  }
+
+  function layerImage(layer) {
+    return $('picture img', layer) || $('img', layer);
+  }
+
+  /** Fisher–Yates: 0..len-1 のランダム並び（全枚を1周するたびに再シャッフル） */
+  function shuffledIndices(len) {
+    var arr = [];
+    var i;
+    for (i = 0; i < len; i++) arr.push(i);
+    for (i = len - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function newPlayOrder(slideCount, avoidFirstIndex) {
+    if (slideCount <= 1) return [0];
+    var order;
+    do {
+      order = shuffledIndices(slideCount);
+    } while (order[0] === avoidFirstIndex);
+    return order;
+  }
+
+  function assignSlideImage(img, jpgHref, title, onReady) {
+    var urls = coverDisplayUrls(jpgHref);
+    img.alt = title || '';
+    var done = false;
+    function finish() {
+      if (done) return;
+      done = true;
+      if (onReady) onReady();
+    }
+    if (img.dataset.slideSrc === jpgHref && img.complete && img.naturalWidth > 0) {
+      finish();
+      return;
+    }
+    img.dataset.slideSrc = jpgHref;
+    img.onload = finish;
+    img.onerror = function tryJpg() {
+      img.onerror = function tryLegacy() {
+        img.onerror = finish;
+        img.src = urls.legacy;
+      };
+      img.src = urls.jpg;
+    };
+    img.src = urls.webp;
+    if (img.complete && img.naturalWidth > 0) finish();
+  }
+
   /* ---- カバー画像スライドショー（Ken Burns） ---- */
   function initCoverSlideshow() {
     var root = $('#p7IGM_1');
@@ -58,9 +121,6 @@
     var viewport = $('#p7IGMimgwrapper_1');
     var links = $$('.p7IGM03_thumbslist li a', root);
     if (!viewport || links.length === 0) return;
-
-    var legacyImage = $('#p7IGMimage_1');
-    if (legacyImage) legacyImage.classList.add('legacy-hidden');
 
     var slides = links.map(function (a) {
       return {
@@ -71,22 +131,34 @@
     });
 
     viewport.classList.add('ken-burns-viewport');
-    viewport.innerHTML =
-      '<div class="ken-burns-stage">' +
-      '<div class="ken-burns-layer layer-a is-visible"><img alt="" /></div>' +
-      '<div class="ken-burns-layer layer-b"><img alt="" /></div>' +
-      '</div>';
+    if (!$('.ken-burns-stage', viewport)) {
+      viewport.innerHTML =
+        '<div class="ken-burns-stage">' +
+        '<div class="ken-burns-layer layer-a is-visible ken-burns-layer--initial"><img alt="" width="1000" height="521" decoding="async" /></div>' +
+        '<div class="ken-burns-layer layer-b"><img alt="" width="1000" height="521" decoding="async" /></div>' +
+        '</div>';
+    }
 
     var layers = $$('.ken-burns-layer', viewport);
     var activeLayer = 0;
     var index = 0;
     var slideTimer = null;
+    var playOrder = newPlayOrder(slides.length, -1);
+    var playPos = 0;
 
     links.forEach(function (a, i) {
-      a.style.backgroundImage = 'url(' + slides[i].src + ')';
+      a.style.backgroundImage = 'url(' + coverDisplayUrls(slides[i].src).webp + ')';
       a.addEventListener('click', function (e) {
         e.preventDefault();
-        goTo(i);
+        var pos = playOrder.indexOf(i);
+        if (pos === -1) {
+          playOrder = newPlayOrder(slides.length, index);
+          playPos = 0;
+          while (playOrder[playPos] !== i && playPos < playOrder.length - 1) playPos++;
+        } else {
+          playPos = pos;
+        }
+        transitionToSlide(i);
       });
     });
 
@@ -112,45 +184,44 @@
 
     function runKenBurns(layerIdx, slideIdx) {
       var layer = layers[layerIdx];
-      var img = $('img', layer);
+      var img = layerImage(layer);
       var slide = slides[slideIdx];
       var kb = slide.kb;
+      if (!img) return;
 
-      img.alt = slide.title;
-
-      function afterLoad() {
+      assignSlideImage(img, slide.src, slide.title, function () {
         startKenBurnsAnim(img, kb);
-      }
-
-      if (img.getAttribute('src') !== slide.src) {
-        img.onload = afterLoad;
-        img.src = slide.src;
-      } else {
-        afterLoad();
-      }
+      });
     }
 
-    function goTo(i) {
-      if (i < 0) i = slides.length - 1;
-      if (i >= slides.length) i = 0;
+    function scheduleNextInPlayOrder() {
+      var kb = slides[index].kb;
+      slideTimer = setTimeout(advancePlayOrder, kb.duration + 600);
+    }
 
+    function advancePlayOrder() {
+      playPos++;
+      if (playPos >= slides.length) {
+        playOrder = newPlayOrder(slides.length, index);
+        playPos = 0;
+      }
+      transitionToSlide(playOrder[playPos]);
+    }
+
+    function transitionToSlide(slideIdx) {
       clearTimers();
       var nextLayer = activeLayer === 0 ? 1 : 0;
 
-      runKenBurns(nextLayer, i);
+      runKenBurns(nextLayer, slideIdx);
 
-      layers[activeLayer].classList.remove('is-visible');
+      layers[activeLayer].classList.remove('is-visible', 'ken-burns-layer--initial');
+      layers[nextLayer].classList.remove('ken-burns-layer--initial');
       layers[nextLayer].classList.add('is-visible');
       activeLayer = nextLayer;
-      index = i;
+      index = slideIdx;
 
       setActiveThumb(index);
-
-      var kb = slides[index].kb;
-      slideTimer = setTimeout(function () {
-        var next = index + 1 >= slides.length ? 0 : index + 1;
-        goTo(next);
-      }, kb.duration + 600);
+      scheduleNextInPlayOrder();
     }
 
     var left = $('#p7IGMleft_1');
@@ -158,21 +229,44 @@
     if (left) {
       left.addEventListener('click', function (e) {
         e.preventDefault();
-        goTo(index - 1);
+        if (playPos > 0) {
+          playPos--;
+        } else {
+          playOrder = newPlayOrder(slides.length, index);
+          playPos = playOrder.length - 1;
+        }
+        transitionToSlide(playOrder[playPos]);
       });
     }
     if (right) {
       right.addEventListener('click', function (e) {
         e.preventDefault();
-        goTo(index + 1 >= slides.length ? 0 : index + 1);
+        advancePlayOrder();
       });
     }
 
-    setActiveThumb(0);
-    runKenBurns(0, 0);
-    slideTimer = setTimeout(function () {
-      goTo(1);
-    }, slides[0].kb.duration + 600);
+    index = playOrder[0];
+    playPos = 0;
+    setActiveThumb(index);
+    var firstImg = layerImage(layers[0]);
+    if (index === 0 && firstImg && firstImg.getAttribute('src')) {
+      startKenBurnsAnim(firstImg, slides[0].kb);
+    } else {
+      runKenBurns(0, index);
+    }
+    scheduleNextInPlayOrder();
+
+    if ('IntersectionObserver' in window) {
+      var pauseObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            viewport.classList.toggle('ken-burns-paused', !entry.isIntersecting);
+          });
+        },
+        { threshold: 0.05 }
+      );
+      pauseObserver.observe(viewport);
+    }
 
     root.classList.remove('IGMnoscript');
   }
@@ -199,7 +293,12 @@
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function (e) {
         e.preventDefault();
+        var hero = $('#p7IGMimgwrapper_1');
+        if (hero) hero.classList.add('ken-burns-paused');
         activate(i);
+        requestAnimationFrame(function () {
+          if (hero) hero.classList.remove('ken-burns-paused');
+        });
       });
     });
 
@@ -483,15 +582,25 @@
     });
   }
 
+  function runDeferred(fn) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout: 2000 });
+    } else {
+      setTimeout(fn, 1);
+    }
+  }
+
   onReady(function () {
     initCoverSlideshow();
     initTabs();
     initScrollTop();
     initImageBlocks();
     initLightbox();
-    initTextEffect();
-    initGradientBg();
     revealContent();
-    initScrollReveal();
+    runDeferred(function () {
+      initTextEffect();
+      initGradientBg();
+      initScrollReveal();
+    });
   });
 })();
